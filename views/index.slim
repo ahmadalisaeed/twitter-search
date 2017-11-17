@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Twitter Search
+  body
+    h1 Welcome
+    form method="POST" action="/search" 
+      input name="search" value="#{params['search']}" placeholder="Search" type="text" /
+      input value="Search" type="submit" /
+    .tweets
+      - if @tweets
+        - @tweets.each do |tweet|
+          p: a href="#{tweet.uri}"=tweet.full_text
+
